@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            card_view:cardCornerRadius="@dimen/card_corner_radius"
+            card_view:cardElevation="@dimen/card_elevation"
+            card_view:cardUseCompatPadding="true"
+            android:layout_marginEnd="@dimen/default_common_padding"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/default_common_padding"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/default_common_padding">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/default_common_padding">
+
+            <TextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primaryTextColor1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_marginBottom="@dimen/margin_5"/>
+
+            <ImageView
+                    android:id="@+id/img_thumbnail"
+                    android:layout_width="@dimen/fact_thumb_image_height"
+                    android:layout_height="@dimen/fact_thumb_image_height"
+                    android:scaleType="fitXY"
+                    android:layout_below="@+id/txt_title"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    tools:src="@mipmap/ic_launcher"/>
+
+            <TextView
+                    android:id="@+id/txt_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_title"
+                    android:layout_marginEnd="@dimen/default_common_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:layout_toStartOf="@+id/img_thumbnail"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

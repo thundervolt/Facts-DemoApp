@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Facts App</string>
+    <string name="error_common_api_call">ERROR !! Tap to retry.</string>
+</resources>
