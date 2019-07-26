@@ -1,5 +1,6 @@
 package com.samples.factsdemoapp.network
 
+import android.content.Context
 import com.samples.factsdemoapp.data.model.FactsList
 import io.reactivex.Single
 import retrofit2.Retrofit
@@ -21,11 +22,12 @@ interface NetworkService {
     companion object {
         val BASE_URL: String = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/"
 
-        fun getApiService(): NetworkService {
+        fun getApiService(context: Context): NetworkService {
             val retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(OkhttpCacheBuilder.getOkhttpCacheClient(context))
                 .build()
 
             return retrofit.create(NetworkService::class.java)

@@ -1,8 +1,9 @@
 package com.samples.factsdemoapp.ui.viewmodel
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.samples.factsdemoapp.data.model.FactsList
 import com.samples.factsdemoapp.helpers.ListState
 import com.samples.factsdemoapp.network.NetworkService
@@ -16,9 +17,9 @@ import io.reactivex.schedulers.Schedulers
  * @author AkashG
  * @since 19-07-2019.
  */
-class FactsListViewModel : ViewModel() {
+class FactsListViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val networkService = NetworkService.getApiService()
+    private val networkService = NetworkService.getApiService(application.applicationContext)
     private val compositeDisposable = CompositeDisposable()
     var factsMutableLiveData: MutableLiveData<FactsList> = MutableLiveData()
     var stateMutableLiveData: MutableLiveData<ListState> = MutableLiveData()
